@@ -113,10 +113,12 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
         //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        var markerLine = L.polyline([json_PMALL_COLECTORES_5], {}).addTo(map);
-        var markerPatterns = L.polylineDecorator(markerLine, {
+            
+        var polyline = L.polyline(json_PMALL_COLECTORES_5).addTo(map);
+        var decorator = L.polylineDecorator(polyline, {
             patterns: [
-                { offset: '5%', repeat: '10%', symbol: L.Symbol.marker()}
+            // defines a pattern of 10px-wide dashes, repeated every 20px on the line
+            {offset: 0, repeat: 20, symbol: L.Symbol.dash({pixelSize: 10})}
             ]
         }).addTo(map);
         //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
